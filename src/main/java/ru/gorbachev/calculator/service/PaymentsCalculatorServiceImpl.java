@@ -6,7 +6,9 @@ import org.springframework.stereotype.Service;
 public class PaymentsCalculatorServiceImpl implements PaymentsCalculatorService {
     @Override
     public String getPayment(double averageSalaryPerMonth, int numberOfDays) {
-        double result = averageSalaryPerMonth / 29.3 * numberOfDays;
+        double result = 0;
+        if (averageSalaryPerMonth > 0 && numberOfDays > 0)
+            result = averageSalaryPerMonth / 29.3 * numberOfDays;
         return String.format("%.2f", result);
     }
 }
